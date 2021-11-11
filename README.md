@@ -1,2 +1,2 @@
 # Night Runner Game
-## AIE Game Dev Course 2021
+AIE Game Dev Course 2021
