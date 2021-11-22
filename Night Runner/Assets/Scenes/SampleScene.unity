@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658822, g: 0.49642307, b: 0.5748253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4351,7 +4351,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17370
+  m_Name: pb_Mesh19468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4684,6 +4684,7 @@ GameObject:
   - component: {fileID: 907666458}
   - component: {fileID: 907666457}
   - component: {fileID: 907666456}
+  - component: {fileID: 907666459}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4756,6 +4757,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907666459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907666455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315810f87e25a7d058dfe69e360ef6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 959949438}
 --- !u!1 &959949433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,6 +4782,7 @@ GameObject:
   - component: {fileID: 959949437}
   - component: {fileID: 959949436}
   - component: {fileID: 959949439}
+  - component: {fileID: 959949441}
   - component: {fileID: 959949435}
   - component: {fileID: 959949440}
   - component: {fileID: 959949434}
@@ -4785,7 +4800,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959949433}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 330985cb756877bd0b065ae6afa1433c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5093,12 +5108,25 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &959949441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959949433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128073d2816430a49b174f3e8b0d7cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 1000
 --- !u!1 &1034679200
 GameObject:
   m_ObjectHideFlags: 0
