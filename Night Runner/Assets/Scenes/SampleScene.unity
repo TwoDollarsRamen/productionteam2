@@ -5082,7 +5082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a529c43b5b5fb6f4aac60c4f92f66460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
 --- !u!54 &959949440
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5099,9 +5098,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
-=======
-  jumpHeight: 5
->>>>>>> Stashed changes
 --- !u!1 &1034679200
 GameObject:
   m_ObjectHideFlags: 0
@@ -8703,7 +8699,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17778
+  m_Name: pb_Mesh-16728
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
