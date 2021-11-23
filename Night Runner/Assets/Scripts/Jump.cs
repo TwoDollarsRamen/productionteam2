@@ -34,10 +34,6 @@ public class Jump : MonoBehaviour
             isGrounded = true;
         }
     }
-    bool CheckStuck() // not implemented yet but will check if they are stuck (colliding with wall) and help the player jump out.
-    {
-        return false;
-    }
     /*
     void OnCollisionStay() // option if you want 'wall jumping'
     {
