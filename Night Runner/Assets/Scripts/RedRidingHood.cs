@@ -17,8 +17,6 @@ public class RedRidingHood : MonoBehaviour
 
 	void Start()
 	{
-		catchUpForce = 1;
-		moveForce = 1;
 		catchingUp = false;
 		rb = gameObject.GetComponent<Rigidbody>();
 	}
