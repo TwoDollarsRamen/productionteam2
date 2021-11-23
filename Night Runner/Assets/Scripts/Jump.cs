@@ -7,6 +7,8 @@ public class Jump : MonoBehaviour
     public float jumpHeight = 10;
     public bool isGrounded;
 
+    bool jump = false;
+
     Rigidbody rb; // refers to red riding hood cubes rigid body
 
     // Start is called before the first frame update
@@ -14,13 +16,21 @@ public class Jump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
+    // FixedUpdate is called once per frame
+    void FixedUpdate()
+    {
+        if (jump == true)
+        {
+            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            jump = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // jump control
         {
-            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            jump = true;
         }
     }
     /// <summary>
