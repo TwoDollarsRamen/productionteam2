@@ -9,14 +9,22 @@ public class RedRidingHood : MonoBehaviour
 	public Camera mainCamera;
 	CameraMover mover;
 
+	[Tooltip("How far back from the middle of the camera the player runs")]
 	public float chaseDisplacement = 4;
+
+	[Tooltip("How soon the player starts slowing down")]
 	public float speedMatchDisplacement = 1;
 
 	bool catchingUp;
 	float moveAccel;
+
+	[Tooltip("How fast the player will get up to speed")]
 	public float catchUpAccel;
+
+	[Tooltip("How quickly the player will slow when reaching camera speed")]
 	public float slowAccel = -1;
 
+	[Tooltip("Max speed relative to the camera")]
 	public float maxRelativeSpeed = 2; // relative to the camera
 
 	Rigidbody rb;
