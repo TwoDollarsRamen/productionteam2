@@ -41,7 +41,7 @@ public class RedRidingHood : MonoBehaviour
 
 		if (rb.velocity.x < moveForce) // limit speed
 		{
-			rb.AddForce(new Vector3(moveForce, 0.0f, 0.0f));
+			rb.AddForce(new Vector3(moveForce - rb.velocity.x, 0.0f, 0.0f));
 		}
 	}
 }
