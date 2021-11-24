@@ -27,6 +27,9 @@ public class RedRidingHood : MonoBehaviour
 	[Tooltip("Max speed relative to the camera")]
 	public float maxRelativeSpeed = 2; // relative to the camera
 
+	[Tooltip("Slows the character when too far ahead of the camera")]
+	public float overshootSlowAccel = -0.5f; 
+
 	Rigidbody rb;
 
 	void Start()
@@ -63,5 +66,9 @@ public class RedRidingHood : MonoBehaviour
 				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
+
+		if (rb.position.x > mainCamera.transform.position.x) // slow if too far
+		{
+			rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+		}
 	}
-}
