@@ -64,8 +64,8 @@ public class Rope : MonoBehaviour
 		}
 	}
 
-	void OnTriggerStay(Collider collider) {
-		if (!endPoint.swinging && Input.GetKeyDown(KeyCode.Space)) {
+	void OnTriggerEnter(Collider collider) {
+		if (!endPoint.swinging) {
 			endPoint.Swing();
 			oldSwinging = true;
 		}
