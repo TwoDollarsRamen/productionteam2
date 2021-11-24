@@ -28,7 +28,7 @@ public class RedRidingHood : MonoBehaviour
 	public float maxRelativeSpeed = 2; // relative to the camera
 
 	[Tooltip("Slows the character when too far ahead of the camera")]
-	public float overshootSlowAccel = -0.5f; 
+	public float overshootSlowAccel = -0.5f;
 
 	Rigidbody rb;
 
@@ -42,25 +42,25 @@ public class RedRidingHood : MonoBehaviour
 	private void FixedUpdate()
 	{
 		if (rb.position.x < mainCamera.transform.position.x - (chaseDisplacement + speedMatchDisplacement))
-        {
+		{
 			moveAccel = catchUpAccel;
 			catchingUp = true;
-        }
-        else
-        {
+		}
+		else
+		{
 			moveAccel = slowAccel;
 			catchingUp = false;
-        }
+		}
 
 		if (catchingUp == true)
-        {
+		{
 			if (rb.velocity.x < maxRelativeSpeed + mover.cameraSpeed)
 			{
 				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
 		else
-        {
+		{
 			if (rb.velocity.x >= mover.cameraSpeed)
 			{
 				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
@@ -72,3 +72,4 @@ public class RedRidingHood : MonoBehaviour
 			rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 		}
 	}
+}
