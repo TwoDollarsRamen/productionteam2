@@ -7,9 +7,14 @@ public class Rope : MonoBehaviour
 	public GameObject segmentRoot;
 	public RopeEnd endPoint;
 
-	public float sag = 0.5f;
+	public RedRidingHood player;
+
+	[Tooltip("This force will be applied to the player's rigidbody when they jump off the rope.")]
+	public Vector2 jumpOffForce = new Vector2(3.0f, 3.0f);
 
 	List<Transform> segments;
+
+	bool oldSwinging;
 
 	void Start()
 	{
@@ -43,6 +48,26 @@ public class Rope : MonoBehaviour
 			t += tIncrement;
 		}
 
-		print(t);
+		if (endPoint.swinging) {
+			player.GetComponent<Rigidbody>().isKinematic = true;
+			player.GetComponent<RedRidingHood>().enabled = false;
+
+			player.transform.position = endPoint.transform.position;
+		} else {
+			player.GetComponent<Rigidbody>().isKinematic = false;
+			player.GetComponent<RedRidingHood>().enabled = true;
+			
+			if (oldSwinging) {
+				oldSwinging = false;
+				player.GetComponent<Rigidbody>().AddForce(jumpOffForce.x, jumpOffForce.y, 0, ForceMode.Impulse);
+			}
+		}
+	}
+
+	void OnTriggerStay(Collider collider) {
+		if (!endPoint.swinging && Input.GetKeyDown(KeyCode.Space)) {
+			endPoint.Swing();
+			oldSwinging = true;
+		}
 	}
 }

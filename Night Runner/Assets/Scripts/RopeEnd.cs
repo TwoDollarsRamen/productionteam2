@@ -2,9 +2,7 @@ using UnityEngine;
 
 /* This script uses a Quadratic Bezier Curve to move the end of the rope
  * in an arc.
- *
- * TODO (George): Snap the player to the end of the rope when triggered.
- * TODO (George): Procedurally position the rope body. */
+ */
 
 public class RopeEnd : MonoBehaviour
 {
@@ -20,7 +18,10 @@ public class RopeEnd : MonoBehaviour
 
 	float offset = 0.0f;
 
-	bool swinging = false;
+	[HideInInspector]
+	public bool swinging = false;
+
+	public bool reverse = true;
 
 	void Start()
 	{
@@ -28,18 +29,28 @@ public class RopeEnd : MonoBehaviour
 		p1 = point1.GetComponent<Transform>().position;
 		p2 = point2.GetComponent<Transform>().position;
 
-		Swing();
+		if (reverse)
+			transform.position = p2;
+		else
+			transform.position = p0;
 	}
 
 	void Update() {
 		if (swinging)
 		{
-			if (offset < 1.0f)
+			if (reverse)
 			{
-				offset += speed * Time.deltaTime;
-			} else
+				if (offset > 0.0f)
+					offset -= speed * Time.deltaTime;
+				else
+					swinging = false;
+			}
+			else
 			{
-				swinging = false;
+				if (offset < 1.0f)
+					offset += speed * Time.deltaTime;
+				else
+					swinging = false;
 			}
 
 			var m1 = Vector3.Lerp(p0, p1, offset);
@@ -47,16 +58,11 @@ public class RopeEnd : MonoBehaviour
 
 			transform.position = Vector3.Lerp(m1, m2, offset);
 		}
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			Swing();
-		}
 	}
 
-	void Swing()
+	public void Swing()
 	{
-		offset = 0.0f;
+		offset = reverse ? 1.0f : 0.0f;
 		swinging = true;
 	}
 }
