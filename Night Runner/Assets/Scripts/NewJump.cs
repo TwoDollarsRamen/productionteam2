@@ -3,24 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewJump : MonoBehaviour
-
-
-
 {
-    float jumpHeight = 10;
+    public float maxJumpHeight;
 
-    public float minJumpHeight;
-
-    [Tooltip("How much the jump height will increase by each interval")]
-    public float jumpHeightIncrease;
+    [Tooltip("How fast you go down after a jump. Must be negative.")]
+    public float jumpFallSpeed;
 
     public bool isGrounded;
-
-    float jumpStartTime;
-    float heldTime;
-
-    [Tooltip("How often or quickly the jump height will increase")]
-    public float increaseInterval;
 
     bool jump = false;
 
@@ -36,12 +25,11 @@ public class NewJump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // jump control
         {
-            jumpStartTime = Time.time;
-        }
-        if (Input.GetKeyUp(KeyCode.Space) && isGrounded) // jump control
-        {
-            heldTime = Time.time - jumpStartTime;
             jump = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) // jump control
+        {
+            rb.AddForce(0, jumpFallSpeed, 0, ForceMode.Impulse);
         }
     }
     // FixedUpdate is called once per frame
@@ -49,32 +37,9 @@ public class NewJump : MonoBehaviour
     {
         if (jump == true)
         {
-            if (heldTime < increaseInterval)
-            {
-                jumpHeight = minJumpHeight;
-            }
-            else if (heldTime >= increaseInterval && heldTime < increaseInterval * 2)
-            {
-                jumpHeight = minJumpHeight + jumpHeightIncrease;
-            }
-            else
-            {
-                jumpHeight = minJumpHeight + jumpHeightIncrease * 2;
-            }
-            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            rb.AddForce(0, maxJumpHeight, 0, ForceMode.Impulse);
             jump = false;
         }
-
-        /*
-        if (Input.GetKeyDown("w"))
-        {
-            startTime = Time.time;
-        }
-        if(Input.GetKeyUp("w"))
-        {
-            Debug.Log((Time.time - startTime).ToString("00:00.00"));
-        }
-         */
     }
     /// <summary>
     /// If the bottom of the player collides with an object, set isGrounded to true
