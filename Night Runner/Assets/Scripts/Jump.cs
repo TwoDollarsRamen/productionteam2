@@ -5,6 +5,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     public float jumpHeight = 10;
+
     public bool isGrounded;
 
     bool jump = false;

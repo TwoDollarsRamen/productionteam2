@@ -41,7 +41,6 @@ public class RedRidingHood : MonoBehaviour
 
 	void Start()
 	{
-		
 		catchingUp = false;
 		//InvokeRepeating("RidingSteps", 0f, footstepSpeed);
 		//StartCoroutine(RidingSteps());
