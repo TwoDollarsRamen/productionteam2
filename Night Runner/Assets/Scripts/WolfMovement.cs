@@ -7,6 +7,8 @@ public class WolfMovement : MonoBehaviour
     public Camera mainCamera;
     CameraMover mover;
 
+    public bool touchingPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,13 @@ public class WolfMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(mover.cameraSpeed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            touchingPlayer = true;
+        }
     }
 }
