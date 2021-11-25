@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class UI : MonoBehaviour
 {
@@ -12,16 +13,20 @@ public class UI : MonoBehaviour
     public GameObject menu = null;
     public GameObject creditsText = null;
     public GameObject backButton = null;
+    public GameObject canvas = null;
 
     void Start()
     {
+		Time.timeScale = 0.0f;
+
         // Establish each game object in the code
-        play = GameObject.Find("Play");
+   /*     play = GameObject.Find("Play");
         credits = GameObject.Find("Credits");
         exit = GameObject.Find("Exit");
         creditsText = GameObject.Find("CreditsText");
         menu = GameObject.Find("Menu");
         backButton = GameObject.Find("BackButton");
+        canvas = GameObject.Find("Canvas");*/
 
         // Sets the active state of each of all UI elements
         play.SetActive(true);
@@ -37,6 +42,10 @@ public class UI : MonoBehaviour
     public void Play()
     {
         Debug.Log("Play");
+
+		canvas.SetActive(false);
+
+		Time.timeScale = 1.0f;
     }
 
     // Opens the credits menu
@@ -74,6 +83,12 @@ public class UI : MonoBehaviour
     public void Exit()
     {
         Debug.Log("Exit");
-        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit()
+#endif
     }
 }
+
