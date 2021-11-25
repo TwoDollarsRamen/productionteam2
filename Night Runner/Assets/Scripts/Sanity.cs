@@ -16,6 +16,7 @@ public class Sanity : MonoBehaviour
     public PostProcessVolume psv;
 
     public float petalGain = 10.0f;
+    public float flowerGain = 20.0f;
 
     Vignette vignette;
 
@@ -46,6 +47,13 @@ public class Sanity : MonoBehaviour
         if (collider.CompareTag("Petal"))
         {
             sanity += petalGain;
+            if (sanity > maxSanity)
+            {
+                sanity = maxSanity;
+            }
+            Destroy(collider.gameObject);
+        } else if (collider.CompareTag("Flower")) {
+            sanity += flowerGain;
             if (sanity > maxSanity)
             {
                 sanity = maxSanity;
