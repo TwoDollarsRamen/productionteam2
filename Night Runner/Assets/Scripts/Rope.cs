@@ -53,14 +53,13 @@ public class Rope : MonoBehaviour
 			player.GetComponent<RedRidingHood>().enabled = false;
 
 			player.transform.position = endPoint.transform.position;
-		} else {
+		} else if (oldSwinging) {
+			oldSwinging = false;
+
 			player.GetComponent<Rigidbody>().isKinematic = false;
 			player.GetComponent<RedRidingHood>().enabled = true;
 			
-			if (oldSwinging) {
-				oldSwinging = false;
-				player.GetComponent<Rigidbody>().AddForce(jumpOffForce.x, jumpOffForce.y, 0, ForceMode.Impulse);
-			}
+			player.GetComponent<Rigidbody>().AddForce(jumpOffForce.x, jumpOffForce.y, 0, ForceMode.Impulse);
 		}
 	}
 
