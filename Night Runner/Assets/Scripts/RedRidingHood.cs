@@ -30,12 +30,21 @@ public class RedRidingHood : MonoBehaviour
 	[Tooltip("Slows the character when too far ahead of the camera")]
 	public float overshootSlowAccel = -0.5f;
 
+	//public AudioClip[] footsteps;
+	public AudioSource hoodNoise;
+	public AudioClip[] hoodClip;
+	//private int t;
+	//public GameObject jump;
+	//public float footstepSpeed = 0.2f;
+
 	Rigidbody rb;
 
 	void Start()
 	{
+		
 		catchingUp = false;
-
+		//InvokeRepeating("RidingSteps", 0f, footstepSpeed);
+		//StartCoroutine(RidingSteps());
 		mover = mainCamera.GetComponent<CameraMover>();
 		rb = gameObject.GetComponent<Rigidbody>();
 	}
@@ -71,5 +80,51 @@ public class RedRidingHood : MonoBehaviour
 		{
 			rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 		}
+		//t = Random.Range(0, 3);
+		//jump.GetComponent<Jump>();
+		
 	}
+    /*IEnumerator RidingSteps()
+    {
+		
+		hoodNoise.clip = footsteps[t];
+		hoodNoise.Play();
+		yield return new WaitForSeconds(1f);
+	}
+	*/
+    /*void RidingSteps()
+    {
+		if (jump.GetComponent<Jump>().isGrounded == true)
+		{
+			hoodNoise.clip = footsteps[t];
+			hoodNoise.Play();
+		}
+	}*/
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Pit")
+        {
+			hoodNoise.clip = hoodClip[0];
+			hoodNoise.Play();
+        }
+		
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+			hoodNoise.clip = hoodClip[2];
+			hoodNoise.Play();
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+		if (other.gameObject.tag == "Floor")
+		{
+			hoodNoise.clip = hoodClip[1];
+			hoodNoise.Play();
+		}
+	}
+
 }
+
