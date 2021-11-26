@@ -376,7 +376,7 @@ MonoBehaviour:
   point0: {fileID: 7973614329264699904}
   point1: {fileID: 7973614330478086092}
   point2: {fileID: 7973614330656351886}
-  speed: 1
+  speed: 3
   swinging: 0
   reverse: 1
 --- !u!1 &7973614330233367120
@@ -845,7 +845,7 @@ Transform:
   m_GameObject: {fileID: 7973614331075574836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 7973614330187985972}
   - {fileID: 7973614331024050415}
@@ -867,8 +867,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentRoot: {fileID: 7973614330077877215}
   endPoint: {fileID: 7973614330187985975}
-  player: {fileID: 0}
-  jumpOffForce: {x: 3, y: 3}
+  player: {fileID: 1419097194, guid: 601071bca55729447868a4397a5ad9d7, type: 3}
+  jumpOffForce: {x: 5, y: 5}
 --- !u!54 &1136772970
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &1136772969
 BoxCollider:
   m_ObjectHideFlags: 0

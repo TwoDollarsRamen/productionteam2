@@ -18,6 +18,7 @@ public class Rope : MonoBehaviour
 
 	void Start()
 	{
+		player = GameObject.Find("Red Riding Hood").GetComponent<RedRidingHood>();
 		segments = new List<Transform>();
 
 		foreach (Transform child in segmentRoot.transform)
