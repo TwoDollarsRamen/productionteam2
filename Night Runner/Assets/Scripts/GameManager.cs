@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerSanity.sanity <= 0) // Sanity Loss Condition
+        // Win
+
+        if (playerSanity.sanity < 0) // Sanity Loss Condition
         {
             // Lose
         }
-        if (player.transform.position.x < 0) // Fall in hole loss condition
+        if (player.transform.position.y < -3) // Fall in hole loss condition
         {
             // Lose
         }
