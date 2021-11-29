@@ -15,13 +15,13 @@ public class WinLoseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        restartButton.isActiveAndEnabled;
-        exitButton.SetActive(false);
-        background.SetActive(false);
+        //restartButton.isActiveAndEnabled;
+        //exitButton.SetActive(false);
+        //background.SetActive(false);
 
-        background = GameObject.Find("WinLoseBackground");
-        restartButton = GameObject.Find("RestartButton");
-        exitButton = GameObject.Find("ExitButton");
+        //background = GameObject.Find("WinLoseBackground");
+        //restartButton = GameObject.Find("RestartButton");
+        //exitButton = GameObject.Find("ExitButton");
     }
 
     // Update is called once per frame
