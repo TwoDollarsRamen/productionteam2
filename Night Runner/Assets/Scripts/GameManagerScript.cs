@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -46,6 +47,10 @@ public class GameManagerScript : MonoBehaviour
         {
             // Lose
             Time.timeScale = 0.0f; // game speed or un-pause
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
