@@ -66,7 +66,7 @@ public class Rope : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		if (!endPoint.swinging) {
+		if (collider.gameObject.CompareTag("Player") && !endPoint.swinging) {
 			endPoint.Swing();
 			oldSwinging = true;
 		}
