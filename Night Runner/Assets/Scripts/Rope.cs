@@ -65,10 +65,14 @@ public class Rope : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter(Collider collider) {
-		if (collider.gameObject.CompareTag("Player") && !endPoint.swinging) {
-			endPoint.Swing();
-			oldSwinging = true;
+	void OnTriggerEnter(Collider collider) 
+	{
+		if (collider.CompareTag("Player") == true)
+		{
+			if (!endPoint.swinging) {
+				endPoint.Swing();
+				oldSwinging = true;
+			}
 		}
 	}
 }
