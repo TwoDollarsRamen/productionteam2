@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WinLoseMenu : MonoBehaviour
 {
+    static bool restarted = false;
+
     public Button restartButton;
     public Button exitButton;
+
     public Image background;
+
+    public Canvas startMenu;
 
     bool gamePaused = false;
     bool pauseEnabled = true;
-
-    public bool gameWon = false;
-    public bool gameLost = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,15 @@ public class WinLoseMenu : MonoBehaviour
         restartButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
+
+        restartButton.onClick.AddListener(Restart); // button to restart
+        exitButton.onClick.AddListener(Exit);
+
+        if (restarted)
+        {
+            CloseStartMenu();
+            restarted = false;
+        }
     }
 
     // Update is called once per frame
@@ -35,8 +47,6 @@ public class WinLoseMenu : MonoBehaviour
         {
             GameUnPause();
         }
-
-        exitButton.onClick.AddListener(Exit);
     }
     void GamePause()
     {
@@ -74,5 +84,19 @@ public class WinLoseMenu : MonoBehaviour
 #else
          Application.Quit();
 #endif
+    }
+    void Restart() // function
+    {
+        Scene scene = SceneManager.GetActiveScene(); // Scene reload
+        SceneManager.LoadScene(scene.name);
+
+        startMenu.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
+        restarted = true;
+    }
+    void CloseStartMenu() // function
+    {
+        startMenu.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
