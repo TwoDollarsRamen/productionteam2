@@ -18,6 +18,7 @@ public class Rope : MonoBehaviour
 
 	void Start()
 	{
+		player = GameObject.Find("Red Riding Hood").GetComponent<RedRidingHood>();
 		segments = new List<Transform>();
 
 		foreach (Transform child in segmentRoot.transform)
@@ -64,10 +65,14 @@ public class Rope : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter(Collider collider) {
-		if (!endPoint.swinging) {
-			endPoint.Swing();
-			oldSwinging = true;
+	void OnTriggerEnter(Collider collider) 
+	{
+		if (collider.CompareTag("Player") == true)
+		{
+			if (!endPoint.swinging) {
+				endPoint.Swing();
+				oldSwinging = true;
+			}
 		}
 	}
 }
