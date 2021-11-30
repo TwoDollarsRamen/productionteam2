@@ -29,6 +29,10 @@ public class RopeEnd : MonoBehaviour
 		p1 = point1.GetComponent<Transform>().position;
 		p2 = point2.GetComponent<Transform>().position;
 
+		point0.GetComponent<MeshRenderer>().enabled = false;
+		point1.GetComponent<MeshRenderer>().enabled = false;
+		point2.GetComponent<MeshRenderer>().enabled = false;
+
 		if (reverse)
 			transform.position = p2;
 		else

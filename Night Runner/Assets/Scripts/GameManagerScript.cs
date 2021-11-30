@@ -29,23 +29,23 @@ public class GameManagerScript : MonoBehaviour
         if (finishScript.touchingPlayer == true) // FinishLine Win Condition
         {
             // Win
-            wolf.SetActive(false);
+            Time.timeScale = 0.0f; // game speed or un-pause
         }
 
         if (playerSanity.sanity < 0) // Sanity Loss Condition
         {
             // Lose
-            wolf.SetActive(false);
+            Time.timeScale = 0.0f; // game speed or un-pause
         }
         if (player.transform.position.y < -3) // Fall in hole loss condition
         {
             // Lose
-            wolf.SetActive(false);
+            Time.timeScale = 0.0f; // game speed or un-pause
         }
         if (wolfMovement.touchingPlayer) // Touch Wolf Loss Condition
         {
             // Lose
-            wolf.SetActive(false);
+            Time.timeScale = 0.0f; // game speed or un-pause
         }
     }
 }
