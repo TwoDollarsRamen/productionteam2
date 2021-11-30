@@ -9,6 +9,8 @@ public class Sanity : MonoBehaviour
 
     public float sanity = 0;
 
+	public float minSanity = 0.001f;
+
     [Tooltip("The rate at which sanity will decrease.")]
     public float loss = 0.1f;
 
@@ -35,7 +37,7 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sanity > 0.0f)
+        if (sanity > minSanity && sanity > 0.0f)
         {
             sanity -= loss * Time.deltaTime;
         }
