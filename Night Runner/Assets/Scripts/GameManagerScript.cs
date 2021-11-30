@@ -32,11 +32,11 @@ public class GameManagerScript : MonoBehaviour
             Time.timeScale = 0.0f; // game speed or un-pause
         }
 
-        if (playerSanity.sanity < 0) // Sanity Loss Condition
+        /* if (playerSanity.sanity < 0) // Sanity Loss Condition
         {
             // Lose
             Time.timeScale = 0.0f; // game speed or un-pause
-        }
+        } */
         if (player.transform.position.y < -3) // Fall in hole loss condition
         {
             // Lose
