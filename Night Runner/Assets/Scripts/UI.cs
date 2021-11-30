@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-		Time.timeScale = 0.0f;
+		Time.timeScale = 0.0f; // pause
 
         // Establish each game object in the code
    /*     play = GameObject.Find("Play");
@@ -45,7 +45,7 @@ public class UI : MonoBehaviour
 
 		canvas.SetActive(false);
 
-		Time.timeScale = 1.0f;
+		Time.timeScale = 1.0f; // game speed or un-pause
     }
 
     // Opens the credits menu
@@ -87,7 +87,7 @@ public class UI : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit()
+        Application.Quit();
 #endif
     }
 }
