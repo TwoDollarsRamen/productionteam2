@@ -37,12 +37,16 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sanity > minSanity && sanity > 0.0f)
+        if (sanity > 0.0f)
         {
             sanity -= loss * Time.deltaTime;
         }
 
-        var unitSanity = (float)maxSanity - (float)sanity;
+		float s = sanity;
+		if (s < minSanity) {
+			s = minSanity;
+		}
+        var unitSanity = (float)maxSanity - s;
         vignette.intensity.value = unitSanity;
     }
 
