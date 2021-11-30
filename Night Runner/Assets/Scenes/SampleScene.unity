@@ -78667,5 +78667,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Riding Hood
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2339455948756757719, guid: ae29869394d2a334db81f812b4403cc0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae29869394d2a334db81f812b4403cc0, type: 3}
