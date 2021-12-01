@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class NewJump : MonoBehaviour
 {
-    public float maxJumpHeight;
-
-    [Tooltip("How fast you go down after a jump. Must be negative.")]
-    public float jumpFallSpeed;
+	[Tooltip("Extra velocity added when the player is falling")]
+	public float fallMultiplier = 2.5f;
+	[Tooltip("\"Brake\" velocity to stop the player's jump if he let's go of the space bar")]
+	public float lowJumpMultiplier = 2.0f;
+	[Tooltip("Velocity to be added to the \"Y\" axis of the player's velocity should he jump.")]
+	public float jumpVelocity = 20.0f;
 
     public bool isGrounded;
 
@@ -27,17 +29,20 @@ public class NewJump : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetKeyUp(KeyCode.Space)) // jump control
-        {
-            rb.AddForce(0, jumpFallSpeed, 0, ForceMode.Impulse);
-        }
     }
     // FixedUpdate is called once per frame
     void FixedUpdate()
     {
-        if (jump == true)
+		if (rb.velocity.y < 0)
+		{
+			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+		} else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space)) {	
+			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+		}
+
+        if (jump)
         {
-            rb.AddForce(0, maxJumpHeight, 0, ForceMode.Impulse);
+        	rb.velocity = new Vector3(rb.velocity.x, jumpVelocity, rb.velocity.z);
             jump = false;
         }
     }
