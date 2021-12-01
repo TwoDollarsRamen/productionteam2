@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Flower
   - Petal
+  - Speed Up
   layers:
   - Default
   - TransparentFX

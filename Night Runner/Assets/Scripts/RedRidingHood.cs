@@ -30,6 +30,8 @@ public class RedRidingHood : MonoBehaviour
 	[Tooltip("Slows the character when too far ahead of the camera")]
 	public float overshootSlowAccel = -0.5f;
 
+	public float cameraRange = 0.12f;
+
 	//public AudioClip[] footsteps;
 	public AudioSource hoodNoise;
 	public AudioClip[] hoodClip;
@@ -64,7 +66,10 @@ public class RedRidingHood : MonoBehaviour
 		{
 			if (rb.velocity.x < maxRelativeSpeed + mover.cameraSpeed)
 			{
-				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+				if (Mathf.Abs(rb.position.x - mainCamera.transform.position.x) > cameraRange)
+				{
+					rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+				}
 			}
 		}
 		else
@@ -74,10 +79,13 @@ public class RedRidingHood : MonoBehaviour
 				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
-
-		if (rb.position.x > mainCamera.transform.position.x) // slow if too far
+		
+		if (rb.position.x > mainCamera.transform.position.x) // slow if too far, check against a range of camera, e.g. within 0.1
 		{
-			rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+			if (Mathf.Abs(rb.position.x - mainCamera.transform.position.x) > cameraRange)
+			{
+				rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+			}
 		}
 		//t = Random.Range(0, 3);
 		//jump.GetComponent<Jump>();

@@ -13,6 +13,7 @@ public class Sanity : MonoBehaviour
 
     [Tooltip("The rate at which sanity will decrease.")]
     public float loss = 0.1f;
+    public float lossGain = 0.01f;
 
     [Tooltip("The camera's Post Processing Volume/")]
     public PostProcessVolume psv;
@@ -70,5 +71,10 @@ public class Sanity : MonoBehaviour
             }
             Destroy(collider.gameObject);
         }
+        if (collider.CompareTag("Speed Up"))
+        {
+            loss = loss + lossGain;
+        }
+        
     }
 }
