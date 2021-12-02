@@ -21,13 +21,17 @@ public class Sanity : MonoBehaviour
     public float petalGain = 10.0f;
     public float flowerGain = 20.0f;
 
-    float gain;
+    [Tooltip("Rate of which sanity comes back. 0.07 is a good start.")]
+    public float gain;
 
     [Tooltip("Public for debugging, don't bother changing unless you want sanity to take a-bit to start going down.")]
     public float sanityToGain = 0.0f;
 
     [Tooltip("How much build up of sanity is allowed.")]
     public float maxSanityToGain;
+
+    [Tooltip("How much the max sanity to gain will go up by each speed up.")]
+    public float increaseToMaxSanityToGain;
 
     Vignette vignette;
 
@@ -75,22 +79,12 @@ public class Sanity : MonoBehaviour
     {
         if (collider.CompareTag("Petal"))
         {
-            //sanity += petalGain;
-            //if (sanity > maxSanity)
-            //{
-            //    sanity = maxSanity;
-            //}
             sanityToGain += petalGain;
 
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
         {
-            //sanity += flowerGain;
-            //if (sanity > maxSanity)
-            //{
-            //    sanity = maxSanity;
-            //}
             sanityToGain += flowerGain;
 
             Destroy(collider.gameObject);
@@ -98,17 +92,7 @@ public class Sanity : MonoBehaviour
         if (collider.CompareTag("Speed Up"))
         {
             loss = loss + lossGain;
+            maxSanityToGain += increaseToMaxSanityToGain;
         }
-    }
-
-    void increaseSanity(float increase)
-    {
-        float s = sanity;
-        if (s < minSanity)
-        {
-            s = minSanity;
-        }
-        var unitSanity = (float)maxSanity - s;
-        vignette.intensity.value = unitSanity;
     }
 }
