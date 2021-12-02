@@ -88,6 +88,7 @@ public class RedRidingHood : MonoBehaviour
 				rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
+		
 		//t = Random.Range(0, 3);
 		//jump.GetComponent<Jump>();
 		
