@@ -31,5 +31,6 @@ public class WinLoseMenu : MonoBehaviour
         {
             Time.timeScale = 0.0f; // pause
         }
+        
     }
 }
