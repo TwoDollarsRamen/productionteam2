@@ -17,6 +17,15 @@ public class WolfMovement : MonoBehaviour
 	Vector3 targetPosition;
 	Vector3 oldPosition;
 
+    public float wolfMaxY;
+
+    public float wolfStartingY;
+
+    public float wolfMinY;
+
+    [Tooltip("Recommended starting speed for your fiddling is 1.")]
+    public float wolfHoverSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +40,15 @@ public class WolfMovement : MonoBehaviour
     {
     	var unitSanity = (float)player.maxSanity - (float)player.sanity;
 
+        // wolf hover up and down
+        if (transform.position.y > wolfMaxY || transform.position.y < wolfMinY)
+        {
+            wolfHoverSpeed = wolfHoverSpeed * -1;
+        }
+
+        targetPosition.y += wolfHoverSpeed * Time.deltaTime;
+
+        // movement
         targetPosition.x = mainCamera.transform.position.x + initialCameraOffset +
         	unitSanity * sanityCloseMultiplier;
         transform.position = targetPosition;

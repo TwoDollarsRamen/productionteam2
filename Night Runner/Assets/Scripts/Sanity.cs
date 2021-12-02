@@ -35,6 +35,9 @@ public class Sanity : MonoBehaviour
 
     Vignette vignette;
 
+    public AudioSource heartbeatEmitter;
+    public AudioSource musicEmitter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +76,12 @@ public class Sanity : MonoBehaviour
 		}
         var unitSanity = (float)maxSanity - s;
         vignette.intensity.value = unitSanity;
+
+        unitSanity = (float)maxSanity - sanity;
+        heartbeatEmitter.volume = unitSanity;
+
+        unitSanity = sanity / maxSanity;
+        musicEmitter.volume = unitSanity;
     }
 
     void OnTriggerEnter(Collider collider)
