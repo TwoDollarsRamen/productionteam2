@@ -21,10 +21,13 @@ public class Sanity : MonoBehaviour
     public float petalGain = 10.0f;
     public float flowerGain = 20.0f;
 
-    //[Tooltip("How fast sanity will go up after collecting.")] // currently just goes a same speed as loss.
     float gain;
 
-    float sanityToGain = 0.0f;
+    [Tooltip("Public for debugging, don't bother changing unless you want sanity to take a-bit to start going down.")]
+    public float sanityToGain = 0.0f;
+
+    [Tooltip("How much build up of sanity is allowed.")]
+    public float maxSanityToGain;
 
     Vignette vignette;
 
@@ -44,10 +47,11 @@ public class Sanity : MonoBehaviour
     void Update()
     {
         gain = loss;
-        //if (sanity > 0.0f)
-        //{
-        //    sanity -= loss * Time.deltaTime;
-        //}
+
+        if (sanityToGain > maxSanityToGain)
+        {
+            sanityToGain = maxSanityToGain;
+        }
 
         if (sanityToGain > 0 && sanity + gain < maxSanity && sanityToGain >= gain)
         {

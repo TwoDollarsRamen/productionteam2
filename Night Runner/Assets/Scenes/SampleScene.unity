@@ -9871,8 +9871,7 @@ MonoBehaviour:
   psv: {fileID: 907666460}
   petalGain: 0.01
   flowerGain: 1
-  gain: 0.02
-  sanityToGain: 0
+  maxSanityToGain: 1
 --- !u!1001 &1427552191
 PrefabInstance:
   m_ObjectHideFlags: 0
