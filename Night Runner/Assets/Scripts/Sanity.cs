@@ -37,6 +37,7 @@ public class Sanity : MonoBehaviour
 
     public AudioSource heartbeatEmitter;
     public AudioSource musicEmitter;
+    public GameObject petalParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -89,7 +90,7 @@ public class Sanity : MonoBehaviour
         if (collider.CompareTag("Petal"))
         {
             sanityToGain += petalGain;
-
+            Instantiate(petalParticle, transform.localPosition, Quaternion.identity);
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
