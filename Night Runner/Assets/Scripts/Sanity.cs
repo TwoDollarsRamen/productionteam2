@@ -21,6 +21,11 @@ public class Sanity : MonoBehaviour
     public float petalGain = 10.0f;
     public float flowerGain = 20.0f;
 
+    //[Tooltip("How fast sanity will go up after collecting.")] // currently just goes a same speed as loss.
+    float gain;
+
+    float sanityToGain = 0.0f;
+
     Vignette vignette;
 
     // Start is called before the first frame update
@@ -38,12 +43,23 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sanity > 0.0f)
+        gain = loss;
+        //if (sanity > 0.0f)
+        //{
+        //    sanity -= loss * Time.deltaTime;
+        //}
+
+        if (sanityToGain > 0 && sanity + gain < maxSanity && sanityToGain >= gain)
+        {
+            sanity += gain * Time.deltaTime;
+            sanityToGain -= gain * Time.deltaTime;
+        }
+        else
         {
             sanity -= loss * Time.deltaTime;
         }
 
-		float s = sanity;
+        float s = sanity;
 		if (s < minSanity) {
 			s = minSanity;
 		}
@@ -55,26 +71,40 @@ public class Sanity : MonoBehaviour
     {
         if (collider.CompareTag("Petal"))
         {
-            sanity += petalGain;
-            if (sanity > maxSanity)
-            {
-                sanity = maxSanity;
-            }
+            //sanity += petalGain;
+            //if (sanity > maxSanity)
+            //{
+            //    sanity = maxSanity;
+            //}
+            sanityToGain += petalGain;
+
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
         {
-            sanity += flowerGain;
-            if (sanity > maxSanity)
-            {
-                sanity = maxSanity;
-            }
+            //sanity += flowerGain;
+            //if (sanity > maxSanity)
+            //{
+            //    sanity = maxSanity;
+            //}
+            sanityToGain += flowerGain;
+
             Destroy(collider.gameObject);
         }
         if (collider.CompareTag("Speed Up"))
         {
             loss = loss + lossGain;
         }
-        
+    }
+
+    void increaseSanity(float increase)
+    {
+        float s = sanity;
+        if (s < minSanity)
+        {
+            s = minSanity;
+        }
+        var unitSanity = (float)maxSanity - s;
+        vignette.intensity.value = unitSanity;
     }
 }
