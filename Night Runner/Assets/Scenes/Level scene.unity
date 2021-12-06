@@ -65267,6 +65267,7 @@ MonoBehaviour:
   wolf: {fileID: 919132149072347941}
   finishLine: {fileID: 287389071}
   winLoseCanvas: {fileID: 1243335338}
+  allowRToRestart: 1
 --- !u!4 &1611419957
 Transform:
   m_ObjectHideFlags: 0
