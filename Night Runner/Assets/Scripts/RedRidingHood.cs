@@ -152,7 +152,10 @@ public class RedRidingHood : MonoBehaviour
 		}
 		if (other.gameObject.tag == "Wolf")
 		{
-			playerSanity.heartbeatEmitter.volume = 0;
+			for (int i = 0; i < playerSanity.heartbeatEmitter.Length; i++)
+            {
+				playerSanity.heartbeatEmitter[i].volume = 0;
+			}
 		}
 	}
 

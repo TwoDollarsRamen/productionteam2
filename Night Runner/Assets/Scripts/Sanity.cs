@@ -35,7 +35,8 @@ public class Sanity : MonoBehaviour
 
     Vignette vignette;
 
-    public AudioSource heartbeatEmitter;
+    public AudioSource[] heartbeatEmitter = new AudioSource[3];
+
     public AudioSource musicEmitter;
     public GameObject petalParticle;
 
@@ -80,15 +81,15 @@ public class Sanity : MonoBehaviour
 
         if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
         {
-            heartbeatEmitter.volume = maxSanity - (maxSanity / 3);
+            heartbeatEmitter[0].volume = maxSanity - (maxSanity / 3);
         }
         else if (sanity <= (maxSanity / 3) * 2) // 66%
         {
-            heartbeatEmitter.volume = maxSanity - (maxSanity / 3) * 2;
+            heartbeatEmitter[1].volume = maxSanity - (maxSanity / 3) * 2;
         }
         else // > 66%
         {
-            heartbeatEmitter.volume = maxSanity - (maxSanity / 10) * 9;
+            heartbeatEmitter[2].volume = maxSanity - (maxSanity / 10) * 9;
         }
 
         if (sanity < maxSanity / 2) // music with sanity
