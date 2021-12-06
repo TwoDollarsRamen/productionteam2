@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 390871285}
-  m_IndirectSpecularColor: {r: 0.12670094, g: 0.24139193, b: 0.35536888, a: 1}
+  m_IndirectSpecularColor: {r: 0.12670058, g: 0.24139172, b: 0.3553689, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15270,7 +15270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41a9af6712af29ab89fe2f37003c82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &374033447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53597,7 +53597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41a9af6712af29ab89fe2f37003c82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1326003144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65266,6 +65266,7 @@ MonoBehaviour:
   player: {fileID: 1419097191}
   wolf: {fileID: 919132149072347941}
   finishLine: {fileID: 287389071}
+  winLoseCanvas: {fileID: 1243335338}
 --- !u!4 &1611419957
 Transform:
   m_ObjectHideFlags: 0
