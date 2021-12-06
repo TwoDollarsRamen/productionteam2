@@ -12,7 +12,7 @@ public class WinLoseMenu : MonoBehaviour
     public Button restartButton;
     public Button exitButton;
 
-    public Image background;
+    public RawImage background;
 
     public Canvas startMenu;
 
