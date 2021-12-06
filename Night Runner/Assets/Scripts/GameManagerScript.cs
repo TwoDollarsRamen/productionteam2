@@ -51,6 +51,7 @@ public class GameManagerScript : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene("SampleScene");
+            Time.timeScale = 1;
         }
     }
 }

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4740914984357053199, guid: 3730e7ed529dbb544aaa54628966b663, type: 3}
       propertyPath: m_Name
-      value: Rock Obstacle Variant (3)
+      value: Rock Obstacle Variant (3) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5368516859184126389, guid: 3730e7ed529dbb544aaa54628966b663, type: 3}
       propertyPath: m_RootOrder
@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6542570820978500314, guid: 3730e7ed529dbb544aaa54628966b663, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 188764c0dd9f8ec43863a71017a4a43a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3730e7ed529dbb544aaa54628966b663, type: 3}

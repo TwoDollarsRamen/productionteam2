@@ -17,6 +17,7 @@ public class RedRidingHood : MonoBehaviour
 
 	bool catchingUp;
 	float moveAccel;
+	public float tripAccel = -0.1f;
 
 	[Tooltip("How fast the player will get up to speed")]
 	public float catchUpAccel;
@@ -76,7 +77,7 @@ public class RedRidingHood : MonoBehaviour
 		{
 			if (rb.velocity.x >= mover.cameraSpeed)
 			{
-				rb.AddForce(new Vector3(moveAccel, 0.0f, 0.0f), ForceMode.Acceleration);
+				rb.AddForce(new Vector3(slowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
 		
@@ -87,6 +88,7 @@ public class RedRidingHood : MonoBehaviour
 				rb.AddForce(new Vector3(overshootSlowAccel, 0.0f, 0.0f), ForceMode.Acceleration);
 			}
 		}
+		
 		//t = Random.Range(0, 3);
 		//jump.GetComponent<Jump>();
 		
@@ -123,7 +125,21 @@ public class RedRidingHood : MonoBehaviour
 			hoodNoise.clip = hoodClip[2];
 			hoodNoise.Play();
         }
-    }
+		/*if (other.gameObject.tag == "Trip")
+		{
+			rb.AddForce(new Vector3(-tripAccel, 0.0f, 0.0f), ForceMode.Impulse);
+			Debug.Log("Working");
+		}*/
+	}
+
+    private void OnTriggerStay(Collider other)
+    {
+		/*if (other.gameObject.tag == "Trip")
+		{
+			rb.AddForce(new Vector3(-tripAccel, 0.0f, 0.0f), ForceMode.Impulse);
+			Debug.Log("Working");
+		}*/
+	}
     private void OnCollisionEnter(Collision other)
     {
 		if (other.gameObject.tag == "Floor")
