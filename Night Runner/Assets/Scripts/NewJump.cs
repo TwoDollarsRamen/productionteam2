@@ -14,7 +14,7 @@ public class NewJump : MonoBehaviour
     public bool isGrounded;
 
     bool jump = false;
-
+    public Animator anim;
   
     
 
@@ -24,6 +24,7 @@ public class NewJump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -59,7 +60,7 @@ public class NewJump : MonoBehaviour
         if (Vector3.Dot(contact.normal, Vector3.up) > 0.5) // checks if contact was below
         {
             isGrounded = true;
-            
+            anim.SetBool("isGrounded", true);
         }
     }
     /*
@@ -74,5 +75,6 @@ public class NewJump : MonoBehaviour
     void OnCollisionExit()
     {
         isGrounded = false;
+        anim.SetBool("isGrounded", false);
     }
 }
