@@ -9,8 +9,11 @@ public class Sanity : MonoBehaviour
 
     public float sanity = 0;
 
+	public float minSanity = 0.001f;
+
     [Tooltip("The rate at which sanity will decrease.")]
     public float loss = 0.1f;
+    public float lossGain = 0.01f;
 
     [Tooltip("The camera's Post Processing Volume/")]
     public PostProcessVolume psv;
@@ -18,7 +21,24 @@ public class Sanity : MonoBehaviour
     public float petalGain = 10.0f;
     public float flowerGain = 20.0f;
 
+    [Tooltip("Rate of which sanity comes back. 0.07 is a good start.")]
+    public float gain;
+
+    [Tooltip("Public for debugging, don't bother changing unless you want sanity to take a-bit to start going down.")]
+    public float sanityToGain = 0.0f;
+
+    [Tooltip("How much build up of sanity is allowed.")]
+    public float maxSanityToGain;
+
+    [Tooltip("How much the max sanity to gain will go up by each speed up.")]
+    public float increaseToMaxSanityToGain;
+
     Vignette vignette;
+
+    public AudioSource heartbeatEmitter;
+    public AudioSource musicEmitter;
+    public GameObject petalParticle;
+    public GameObject flowerParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -35,34 +55,64 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sanity > 0.0f)
+        gain = loss;
+
+        if (sanityToGain > maxSanityToGain)
+        {
+            sanityToGain = maxSanityToGain;
+        }
+
+        if (sanityToGain > 0 && sanity + gain < maxSanity && sanityToGain >= gain)
+        {
+            sanity += gain * Time.deltaTime;
+            sanityToGain -= gain * Time.deltaTime;
+        }
+        else
         {
             sanity -= loss * Time.deltaTime;
         }
 
-        var unitSanity = (float)maxSanity - (float)sanity;
+        float s = sanity;
+		if (s < minSanity) {
+			s = minSanity;
+		}
+        var unitSanity = (float)maxSanity - s;
         vignette.intensity.value = unitSanity;
+
+        unitSanity = (float)maxSanity - sanity;
+        heartbeatEmitter.volume = unitSanity;
+
+        unitSanity = sanity / maxSanity;
+        musicEmitter.volume = unitSanity;
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Petal"))
         {
-            sanity += petalGain;
-            if (sanity > maxSanity)
-            {
-                sanity = maxSanity;
-            }
+            sanityToGain += petalGain;
+            var newObj = Instantiate(petalParticle, collider.transform.position, Quaternion.identity);
+            var ps = newObj.GetComponent<ParticleSystem>();
+            var totalDuration = ps.duration + ps.startLifetime;
+            Destroy(newObj, totalDuration);
+
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
         {
-            sanity += flowerGain;
-            if (sanity > maxSanity)
-            {
-                sanity = maxSanity;
-            }
+            sanityToGain += flowerGain;
+
+			var newObj = Instantiate(flowerParticle, collider.transform.position, Quaternion.identity);
+            var ps = newObj.GetComponent<ParticleSystem>();
+            var totalDuration = ps.duration + ps.startLifetime;
+            Destroy(newObj, totalDuration);
+
             Destroy(collider.gameObject);
+        }
+        if (collider.CompareTag("Speed Up"))
+        {
+            loss = loss + lossGain;
+            maxSanityToGain += increaseToMaxSanityToGain;
         }
     }
 }
