@@ -56467,7 +56467,7 @@ MonoBehaviour:
   heartbeatEmitter: {fileID: 1307541404}
   musicEmitter: {fileID: 907666462}
   petalParticle: {fileID: 6611253893044923750, guid: f8028325028559147a9863448febcab6, type: 3}
-  flowerParticle: {fileID: 0}
+  flowerParticle: {fileID: 7509586589446801775, guid: 14225f23d76986e46b02ec2f48992c8d, type: 3}
 --- !u!1001 &1419473797
 PrefabInstance:
   m_ObjectHideFlags: 0
