@@ -11,22 +11,20 @@ public class WinLoseMenu : MonoBehaviour
 
     public Button restartButton;
     public Button exitButton;
+    public Text gameOverText;
+    public string gameOverLoseDisplay = "Y O U  W I N";
+    public string gameOverWinDisplay = "Y O U  L O S E";
 
     public RawImage background;
 
     public Canvas startMenu;
 
-    bool gamePaused = false;
-    bool pauseEnabled = true;
-
     // Start is called before the first frame update
     void Start()
     {
-        restartButton.gameObject.SetActive(false);
-        exitButton.gameObject.SetActive(false);
-        background.gameObject.SetActive(false);
+		activateObjects(false);
 
-        restartButton.onClick.AddListener(Restart); // button to restart
+    	restartButton.onClick.AddListener(Restart); // button to restart
         exitButton.onClick.AddListener(Exit);
 
         if (restarted)
@@ -36,45 +34,20 @@ public class WinLoseMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == false && pauseEnabled == true)
-        {
-            GamePause();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == true && pauseEnabled == true)
-        {
-            GameUnPause();
-        }
-    }
-    void GamePause()
-    {
-        restartButton.gameObject.SetActive(true);
-        exitButton.gameObject.SetActive(true);
-        background.gameObject.SetActive(true);
-
-        Time.timeScale = 0.0f; // pause
-        gamePaused = true;
-    }
-    void GameUnPause()
-    {
-        restartButton.gameObject.SetActive(false);
-        exitButton.gameObject.SetActive(false);
-        background.gameObject.SetActive(false);
-
-        Time.timeScale = 1.0f; // unpause
-        gamePaused = false;
+    void activateObjects(bool active = true) {
+        restartButton.gameObject.SetActive(active);
+        exitButton.gameObject.SetActive(active);
+        background.gameObject.SetActive(active);
+        gameOverText.gameObject.SetActive(active);
     }
 
     public void WinLoseResult(bool playerWon)
     {
-        restartButton.gameObject.SetActive(true);
-        exitButton.gameObject.SetActive(true);
-        background.gameObject.SetActive(true);
+		activateObjects();
 
         Time.timeScale = 0.0f; // pause
-        pauseEnabled = false;
+
+       	gameOverText.text = playerWon ? gameOverWinDisplay : gameOverLoseDisplay;
     }
     void Exit()
     {
