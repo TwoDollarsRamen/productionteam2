@@ -33,6 +33,8 @@ public class RedRidingHood : MonoBehaviour
 
 	public float cameraRange = 0.12f;
 
+	Sanity playerSanity;
+
 	//public AudioClip[] footsteps;
 	public AudioSource hoodNoise;
 	public AudioClip[] hoodClip;
@@ -49,6 +51,7 @@ public class RedRidingHood : MonoBehaviour
 		//StartCoroutine(RidingSteps());
 		mover = mainCamera.GetComponent<CameraMover>();
 		rb = gameObject.GetComponent<Rigidbody>();
+		playerSanity = this.GetComponent<Sanity>();
 	}
 	private void FixedUpdate()
 	{
@@ -146,6 +149,10 @@ public class RedRidingHood : MonoBehaviour
 		{
 			hoodNoise.clip = hoodClip[1];
 			hoodNoise.Play();
+		}
+		if (other.gameObject.tag == "Wolf")
+		{
+			playerSanity.heartbeatEmitter.volume = 0;
 		}
 	}
 
