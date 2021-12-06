@@ -39,8 +39,6 @@ public class Sanity : MonoBehaviour
     public AudioSource musicEmitter;
     public GameObject petalParticle;
 
-    public float unitSanity;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +76,7 @@ public class Sanity : MonoBehaviour
 			s = minSanity;
 		}
 
-        vignette.intensity.value = sanity; // vignette with sanity
+        vignette.intensity.value = maxSanity - sanity; // vignette with sanity
 
         if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
         {
