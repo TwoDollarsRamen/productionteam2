@@ -33,6 +33,8 @@ public class RedRidingHood : MonoBehaviour
 
 	public float cameraRange = 0.12f;
 
+
+
 	//public AudioClip[] footsteps;
 	public AudioSource hoodNoise;
 	public AudioClip[] hoodClip;

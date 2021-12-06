@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2339455948756757717}
   - component: {fileID: 2339455948756757718}
   - component: {fileID: 2339455948756757714}
-  - component: {fileID: 2339455948756757719}
   - component: {fileID: 2339455948756757716}
   m_Layer: 0
   m_Name: Red Riding Hood
@@ -33,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 22.103373, y: 3.5088212, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_Children: []
+  m_Children:
+  - {fileID: 6745759857350532399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339455948756757721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -217,20 +217,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2339455948756757719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2339455948756757721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a529c43b5b5fb6f4aac60c4f92f66460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 12.5
-  isGrounded: 0
 --- !u!114 &2339455948756757716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,12 +232,112 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   chaseDisplacement: 4
   speedMatchDisplacement: 1
+  tripAccel: -0.1
   catchUpAccel: 30
   slowAccel: -1
   maxRelativeSpeed: 2
   overshootSlowAccel: -0.5
+  cameraRange: 0.12
   hoodNoise: {fileID: 2339455948756757714}
   hoodClip:
   - {fileID: 8300000, guid: e49d9cb39fcfefc4cbc54e55d93d9d9f, type: 3}
   - {fileID: 8300000, guid: 99be12d978bfc01458ae49dab1db14db, type: 3}
   - {fileID: 8300000, guid: dbda5de336b752c46a8f91c630d2d6b7, type: 3}
+--- !u!1001 &6491791137383824068
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2339455948756757713}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -77
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+      propertyPath: m_Name
+      value: Red_Riding_Running_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+--- !u!1 &6257206827508270997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+  m_PrefabInstance: {fileID: 6491791137383824068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6745759857350532399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+  m_PrefabInstance: {fileID: 6491791137383824068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3014196061138655093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257206827508270997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c2628687e1838141873606695f25c6e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -15,6 +15,9 @@ public class NewJump : MonoBehaviour
 
     bool jump = false;
 
+  
+    
+
     Rigidbody rb; // refers to red riding hood cubes rigid body
 
     // Start is called before the first frame update
@@ -28,6 +31,7 @@ public class NewJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // jump control
         {
             jump = true;
+            
         }
     }
     // FixedUpdate is called once per frame
@@ -55,6 +59,7 @@ public class NewJump : MonoBehaviour
         if (Vector3.Dot(contact.normal, Vector3.up) > 0.5) // checks if contact was below
         {
             isGrounded = true;
+            
         }
     }
     /*
