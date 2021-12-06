@@ -39,7 +39,6 @@ public class Sanity : MonoBehaviour
     public AudioSource musicEmitter;
     public GameObject petalParticle;
 
-
     public float unitSanity;
 
     // Start is called before the first frame update
@@ -78,22 +77,29 @@ public class Sanity : MonoBehaviour
 		if (s < minSanity) {
 			s = minSanity;
 		}
-        /*var*/ unitSanity = (float)maxSanity - s;
-        vignette.intensity.value = unitSanity;
 
-        if (sanity < maxSanity / 2)
+        vignette.intensity.value = sanity; // vignette with sanity
+
+        if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
         {
-            unitSanity = (float)maxSanity - sanity;
-            heartbeatEmitter.volume = unitSanity;
+            heartbeatEmitter.volume = maxSanity - (maxSanity / 3);
+        }
+        else if (sanity <= (maxSanity / 3) * 2) // 66%
+        {
+            heartbeatEmitter.volume = maxSanity - (maxSanity / 3) * 2;
+        }
+        else // > 66%
+        {
+            heartbeatEmitter.volume = maxSanity - (maxSanity / 10) * 9;
+        }
 
-            unitSanity = sanity / maxSanity;
-            musicEmitter.volume = unitSanity;
+        if (sanity < maxSanity / 2) // music with sanity
+        {
+            musicEmitter.volume = sanity / (maxSanity / 2);
         }
         else
         {
-            heartbeatEmitter.volume = 0;
-
-            musicEmitter.volume = 1;
+            musicEmitter.volume = maxSanity;
         }
     }
 
