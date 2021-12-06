@@ -34952,10 +34952,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907666455}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d6dca4df1cb5374ea236be657d8cb95, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7989ea3cfca9df74fb1eee541be12537, type: 2}
+  m_audioClip: {fileID: 8300000, guid: d84a5d5609bfb8b43899d7f688f7bbdb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
@@ -49538,7 +49538,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307541403}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3770e668bc485934b804206c70277885, type: 3}
@@ -54070,7 +54070,7 @@ MonoBehaviour:
   loss: 0.07
   lossGain: 0.005
   psv: {fileID: 907666460}
-  petalGain: 0.002
+  petalGain: 0.003
   flowerGain: 1
   gain: 0.05
   sanityToGain: 0
@@ -84701,6 +84701,10 @@ PrefabInstance:
     - target: {fileID: 4212482387864626965, guid: 1d59a1efa7dc5904e8ba3b0bef660cb1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212482387864626965, guid: 1d59a1efa7dc5904e8ba3b0bef660cb1, type: 3}
+      propertyPath: m_TagString
+      value: Wolf
       objectReference: {fileID: 0}
     - target: {fileID: 4509732087628975916, guid: 1d59a1efa7dc5904e8ba3b0bef660cb1, type: 3}
       propertyPath: m_Materials.Array.data[0]
