@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public Button exitButton;
     public Text title;
 
+    public AudioSource backgroundMusic;
+
     public RawImage background;
 
     bool gamePaused = false;
@@ -46,6 +48,8 @@ public class PauseMenu : MonoBehaviour
     void GamePause()
     {
 		activateObjects();
+
+        backgroundMusic.Pause();
 
         Time.timeScale = 0.0f; // pause
         gamePaused = true;

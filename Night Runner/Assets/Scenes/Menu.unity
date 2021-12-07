@@ -1883,6 +1883,7 @@ MonoBehaviour:
   resumeButton: {fileID: 1394505524}
   exitButton: {fileID: 104437878}
   title: {fileID: 1061286150}
+  backgroundMusic: {fileID: 1736018538}
   background: {fileID: 750657287}
 --- !u!114 &881115030
 MonoBehaviour:
@@ -3348,6 +3349,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1116319512}
   gameOverLoseDisplay: Y O U   D I E D !
   gameOverWinDisplay: Y O U   E S C A P E D !
+  backgroundMusic: {fileID: 1736018538}
   background: {fileID: 1477788717}
   startMenu: {fileID: 438693172}
 --- !u!114 &1732430386

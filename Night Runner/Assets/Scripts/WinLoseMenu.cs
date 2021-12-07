@@ -14,6 +14,8 @@ public class WinLoseMenu : MonoBehaviour
     public string gameOverLoseDisplay = "Y O U  W I N";
     public string gameOverWinDisplay = "Y O U  L O S E";
 
+    public AudioSource backgroundMusic;
+
     public RawImage background;
 
     public Canvas startMenu;
@@ -45,8 +47,9 @@ public class WinLoseMenu : MonoBehaviour
 		activateObjects();
 
         Time.timeScale = 0.0f; // pause
+        backgroundMusic.Pause();
 
-       	gameOverText.text = playerWon ? gameOverWinDisplay : gameOverLoseDisplay;
+        gameOverText.text = playerWon ? gameOverWinDisplay : gameOverLoseDisplay;
     }
     void Exit()
     {
