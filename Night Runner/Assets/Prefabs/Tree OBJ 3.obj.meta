@@ -3,9 +3,14 @@ guid: 914278626a66e494798ed49116946dcd
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCone18Mat
+    second: {fileID: 2100000, guid: 5b13c85edb6ecd846905a5af55cd5f8a, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
