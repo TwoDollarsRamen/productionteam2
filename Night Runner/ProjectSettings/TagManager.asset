@@ -10,6 +10,9 @@ TagManager:
   - Petal
   - Speed Up
   - Fog
+  - Wolf
+  - Trip
+  - Rope
   layers:
   - Default
   - TransparentFX

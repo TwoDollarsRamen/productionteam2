@@ -79,12 +79,7 @@ public class NewJump : MonoBehaviour
             anim.SetBool("isSwinging", false);
         }
     }
-    /*
-    void OnCollisionStay() // option if you want 'wall jumping'
-    {
-        isGrounded = true;
-    }
-    */
+
     /// <summary>
     /// Whenever the player stops colliding with the floor, allow them to jump again.
     /// </summary>
