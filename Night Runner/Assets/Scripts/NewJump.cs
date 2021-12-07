@@ -68,7 +68,7 @@ public class NewJump : MonoBehaviour
         if (other.gameObject.tag == "Rope")
         {
             anim.SetBool("isSwinging", true);
-            anim.SetBool("isGrounded", true);
+            anim.SetBool("isGrounded", false);
         }
     }
 

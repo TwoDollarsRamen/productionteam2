@@ -4199,6 +4199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rope
       objectReference: {fileID: 0}
+    - target: {fileID: 7973614331075574836, guid: 6e1eec77c05675dfebf03bd1814da405, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e1eec77c05675dfebf03bd1814da405, type: 3}
 --- !u!1001 &96707484
