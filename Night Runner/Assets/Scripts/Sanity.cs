@@ -9,7 +9,7 @@ public class Sanity : MonoBehaviour
 
     public float sanity = 0;
 
-	public float minSanity = 0.001f;
+    public float minSanity = 0.001f;
 
     [Tooltip("The rate at which sanity will decrease.")]
     public float loss = 0.1f;
@@ -35,10 +35,10 @@ public class Sanity : MonoBehaviour
 
     Vignette vignette;
 
-    public AudioSource heartbeatEmitter;
+    public AudioSource[] heartbeatEmitter = new AudioSource[3];
+
     public AudioSource musicEmitter;
     public GameObject petalParticle;
-    public GameObject flowerParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -73,17 +73,34 @@ public class Sanity : MonoBehaviour
         }
 
         float s = sanity;
-		if (s < minSanity) {
-			s = minSanity;
-		}
-        var unitSanity = (float)maxSanity - s;
-        vignette.intensity.value = unitSanity;
+        if (s < minSanity)
+        {
+            s = minSanity;
+        }
 
-        unitSanity = (float)maxSanity - sanity;
-        heartbeatEmitter.volume = unitSanity;
+        vignette.intensity.value = maxSanity - sanity; // vignette with sanity
 
-        unitSanity = sanity / maxSanity;
-        musicEmitter.volume = unitSanity;
+        if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
+        {
+            heartbeatEmitter[0].volume = maxSanity - (maxSanity / 3);
+        }
+        else if (sanity <= (maxSanity / 3) * 2) // 66%
+        {
+            heartbeatEmitter[1].volume = maxSanity - (maxSanity / 3) * 2;
+        }
+        else // > 66%
+        {
+            heartbeatEmitter[2].volume = maxSanity - (maxSanity / 10) * 9;
+        }
+
+        if (sanity < maxSanity / 2) // music with sanity
+        {
+            musicEmitter.volume = sanity / (maxSanity / 2);
+        }
+        else
+        {
+            musicEmitter.volume = maxSanity;
+        }
     }
 
     void OnTriggerEnter(Collider collider)
@@ -91,21 +108,12 @@ public class Sanity : MonoBehaviour
         if (collider.CompareTag("Petal"))
         {
             sanityToGain += petalGain;
-            var newObj = Instantiate(petalParticle, collider.transform.position, Quaternion.identity);
-            var ps = newObj.GetComponent<ParticleSystem>();
-            var totalDuration = ps.duration + ps.startLifetime;
-            Destroy(newObj, totalDuration);
-
+            Instantiate(petalParticle, transform.localPosition, Quaternion.identity);
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
         {
             sanityToGain += flowerGain;
-
-			var newObj = Instantiate(flowerParticle, collider.transform.position, Quaternion.identity);
-            var ps = newObj.GetComponent<ParticleSystem>();
-            var totalDuration = ps.duration + ps.startLifetime;
-            Destroy(newObj, totalDuration);
 
             Destroy(collider.gameObject);
         }
