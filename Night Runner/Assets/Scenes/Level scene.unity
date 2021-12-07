@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 390871285}
-  m_IndirectSpecularColor: {r: 0.12670058, g: 0.24139172, b: 0.3553689, a: 1}
+  m_IndirectSpecularColor: {r: 0.12670094, g: 0.24139193, b: 0.35536888, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13002,10 +13002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -20649,10 +20649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -31225,10 +31225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -62954,10 +62954,10 @@ MonoBehaviour:
   sanityToGain: 0.05
   maxSanityToGain: 0.25
   increaseToMaxSanityToGain: -0.005
-  heartbeatEmitter: {fileID: 1307541404}
+  heartbeatEmitter:
+  - {fileID: 0}
   musicEmitter: {fileID: 907666462}
   petalParticle: {fileID: 6611253893044923750, guid: f8028325028559147a9863448febcab6, type: 3}
-  flowerParticle: {fileID: 7509586589446801775, guid: 14225f23d76986e46b02ec2f48992c8d, type: 3}
 --- !u!1001 &1419473797
 PrefabInstance:
   m_ObjectHideFlags: 0
