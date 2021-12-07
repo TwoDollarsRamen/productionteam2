@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 390871285}
-  m_IndirectSpecularColor: {r: 0.12670094, g: 0.24139193, b: 0.35536888, a: 1}
+  m_IndirectSpecularColor: {r: 0.12670058, g: 0.24139172, b: 0.3553689, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -72244,7 +72244,7 @@ MonoBehaviour:
   player: {fileID: 1419097191}
   wolf: {fileID: 919132149072347941}
   finishLine: {fileID: 287389071}
-  winLoseCanvas: {fileID: 0}
+  winLoseCanvas: {fileID: 452867889}
   allowRToRestart: 1
 --- !u!4 &1611419957
 Transform:
@@ -88398,7 +88398,7 @@ GameObject:
   - component: {fileID: 1915662466}
   - component: {fileID: 1915662465}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: CreditsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96065,9 +96065,14 @@ MonoBehaviour:
   credits: {fileID: 1915662464}
   exit: {fileID: 492199700}
   menu: {fileID: 1924790255}
-  creditsText: {fileID: 0}
-  backButton: {fileID: 0}
+  creditsPrevious: {fileID: 102493406}
+  creditsNext: {fileID: 1160983151}
   canvas: {fileID: 686453363}
+  creditsParent: {fileID: 635668698}
+  creditsPages:
+  - {fileID: 1640935222}
+  - {fileID: 2068478150}
+  - {fileID: 731384401}
 --- !u!1001 &2079450345
 PrefabInstance:
   m_ObjectHideFlags: 0
