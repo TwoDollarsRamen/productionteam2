@@ -38,11 +38,11 @@ public class GameManagerScript : MonoBehaviour
             // Win
             winLoseMenu.WinLoseResult(true);
         }
-        if (playerSanity.sanity < 0) // Sanity Loss Condition
+        /*if (playerSanity.sanity < 0) // Sanity Loss Condition
         {
             // Lose
             winLoseMenu.WinLoseResult(false); // o==[}::::::::::::::::::::::::::::::>
-        }
+        }*/
         if (player.transform.position.y < -3) // Fall in hole loss condition
         {
             // Lose
