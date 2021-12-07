@@ -12,7 +12,11 @@ public class UI : MonoBehaviour
     public GameObject exit = null;
     public GameObject menu = null;
     public GameObject creditsText = null;
-    public GameObject backButton = null;
+    public GameObject creditsDesigners = null;
+    public GameObject creditsProgrammers = null;
+    public GameObject creditsArtists = null;
+    public GameObject creditsPrevious = null;
+    public GameObject creditsNext = null;
     public GameObject canvas = null;
 
     void Start()
@@ -35,7 +39,6 @@ public class UI : MonoBehaviour
         menu.SetActive(true);
 
         creditsText.SetActive(false);
-        backButton.SetActive(false);
     }
 
     // Plays the game
@@ -59,9 +62,15 @@ public class UI : MonoBehaviour
         exit.SetActive(false);
         menu.SetActive(false);
 
+        // Disable other credits pages
+        creditsArtists.SetActive(false);
+        creditsProgrammers.SetActive(false);
+
         // Enable all credits menu UI
         creditsText.SetActive(true);
-        backButton.SetActive(true);
+        creditsDesigners.SetActive(true);
+        creditsNext.SetActive(true);
+        creditsPrevious.SetActive(true);
     }
 
     public void BackButton()
@@ -76,7 +85,6 @@ public class UI : MonoBehaviour
 
         // Disable all main menu UI
         creditsText.SetActive(false);
-        backButton.SetActive(false);
     }
 
     // Exits the game
