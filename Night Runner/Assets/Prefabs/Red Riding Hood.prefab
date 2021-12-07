@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2339455948756757718}
   - component: {fileID: 2339455948756757714}
   - component: {fileID: 2339455948756757716}
+  - component: {fileID: 2416628415069669063}
   m_Layer: 0
   m_Name: Red Riding Hood
   m_TagString: Player
@@ -29,11 +30,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339455948756757721}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.103373, y: 3.5088212, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6745759857350532399}
+  - {fileID: 8904569303390838103}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,8 +120,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 56.48474, y: 158.6604, z: 138.6585}
-  m_Center: {x: 27.2975, y: -3.4448683, z: -0.0000059604645}
+  m_Size: {x: 0.6521254, y: 1.5982769, z: 1}
+  m_Center: {x: 0.08837107, y: 0.7243465, z: 0}
 --- !u!82 &2339455948756757714
 AudioSource:
   m_ObjectHideFlags: 0
@@ -243,101 +244,95 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e49d9cb39fcfefc4cbc54e55d93d9d9f, type: 3}
   - {fileID: 8300000, guid: 99be12d978bfc01458ae49dab1db14db, type: 3}
   - {fileID: 8300000, guid: dbda5de336b752c46a8f91c630d2d6b7, type: 3}
---- !u!1001 &6491791137383824068
+--- !u!114 &2416628415069669063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339455948756757721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b86fa3c3cacf594882c68cc46a6658c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  jumpVelocity: 20
+  isGrounded: 0
+  anim: {fileID: 3275047454617667373}
+--- !u!1001 &8942420320854751932
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 2339455948756757713}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -77
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
+    - target: {fileID: 919132149155446097, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
       propertyPath: m_Name
-      value: Red_Riding_Running_1
+      value: Red_RIding_Running_4
       objectReference: {fileID: 0}
+    - target: {fileID: 2236237030686087061, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5e92cd2a7874164a86749e95d3c49c6, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6c2628687e1838141873606695f25c6e, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
---- !u!1 &6257206827508270997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
-  m_PrefabInstance: {fileID: 6491791137383824068}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6745759857350532399 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
+--- !u!4 &8904569303390838103 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069fca185cfcf8a4fb3b2a8a0ce7314a, type: 3}
-  m_PrefabInstance: {fileID: 6491791137383824068}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
+  m_PrefabInstance: {fileID: 8942420320854751932}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3014196061138655093
+--- !u!95 &3275047454617667373 stripped
 Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1d7912f47d072c74aabff3cc16577d5f, type: 3}
+  m_PrefabInstance: {fileID: 8942420320854751932}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257206827508270997}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c2628687e1838141873606695f25c6e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

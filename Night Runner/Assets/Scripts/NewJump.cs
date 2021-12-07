@@ -63,6 +63,22 @@ public class NewJump : MonoBehaviour
             anim.SetBool("isGrounded", true);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Rope")
+        {
+            anim.SetBool("isSwinging", true);
+            anim.SetBool("isGrounded", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Rope")
+        {
+            anim.SetBool("isSwinging", false);
+        }
+    }
     /*
     void OnCollisionStay() // option if you want 'wall jumping'
     {
