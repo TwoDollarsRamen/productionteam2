@@ -96,44 +96,47 @@ public class Sanity : MonoBehaviour
 
         vignette.intensity.value = maxSanity - sanity; // vignette with sanity
 
-        if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
+        if (heartBeatOne.isActiveAndEnabled)
         {
-            if (!heartBeatThree.isPlaying)
+            if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
             {
-                heartBeatTwo.Stop();
-                heartBeatOne.Stop();
+                if (!heartBeatThree.isPlaying)
+                {
+                    heartBeatTwo.Stop();
+                    heartBeatOne.Stop();
 
-                heartBeatThree.Play();
+                    heartBeatThree.Play();
+                }
             }
-        }
-        else if (sanity <= (maxSanity / 3) * 2) // 66%
-        {
-            if (!heartBeatTwo.isPlaying)
-            { 
-                heartBeatOne.Stop();
-                heartBeatThree.Stop();
-
-                heartBeatTwo.Play();
-            }
-        }
-        else // > 66%
-        {
-            if (!heartBeatOne.isPlaying)
+            else if (sanity <= (maxSanity / 3) * 2) // 66%
             {
-                heartBeatThree.Stop();
-                heartBeatTwo.Stop(); 
+                if (!heartBeatTwo.isPlaying)
+                {
+                    heartBeatOne.Stop();
+                    heartBeatThree.Stop();
 
-                heartBeatOne.Play();
+                    heartBeatTwo.Play();
+                }
             }
-        }
+            else // > 66%
+            {
+                if (!heartBeatOne.isPlaying)
+                {
+                    heartBeatThree.Stop();
+                    heartBeatTwo.Stop();
 
-        if (sanity < maxSanity / 2) // music with sanity 
-        {
-            musicEmitter.volume = sanity / (maxSanity / 2);
-        }
-        else
-        {
-            musicEmitter.volume = maxSanity;
+                    heartBeatOne.Play();
+                }
+            }
+
+            if (sanity < maxSanity / 2) // music with sanity 
+            {
+                musicEmitter.volume = sanity / (maxSanity / 2);
+            }
+            else
+            {
+                musicEmitter.volume = maxSanity;
+            }
         }
     }
 
