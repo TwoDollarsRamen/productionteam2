@@ -47,11 +47,19 @@ public class GameManagerScript : MonoBehaviour
         {
             // Lose
             winLoseMenu.WinLoseResult(false);
+
+            playerSanity.heartBeatObjectOne.SetActive(false);
+            playerSanity.heartBeatObjectTwo.SetActive(false);
+            playerSanity.heartBeatObjectThree.SetActive(false);
         }
         if (wolfMovement.touchingPlayer) // Touch Wolf Loss Condition
         {
             // Lose
             winLoseMenu.WinLoseResult(false);
+
+            playerSanity.heartBeatObjectOne.SetActive(false);
+            playerSanity.heartBeatObjectTwo.SetActive(false);
+            playerSanity.heartBeatObjectThree.SetActive(false);
         }
 
         if (allowRToRestart && Input.GetKeyDown(KeyCode.R)) {

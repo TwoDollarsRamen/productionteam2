@@ -8,6 +8,9 @@ public class WinLoseMenu : MonoBehaviour
 {
     static bool restarted = false;
 
+    public RedRidingHood player;
+    Sanity playerSanity;
+
     public Button restartButton;
     public Button exitButton;
     public Text gameOverText;
@@ -31,11 +34,16 @@ public class WinLoseMenu : MonoBehaviour
     	restartButton.onClick.AddListener(Restart); // button to restart
         exitButton.onClick.AddListener(Exit);
 
+        playerSanity = player.GetComponent<Sanity>();
+
         if (restarted)
         {
             CloseStartMenu();
             restarted = false;
             backgroundMusic.Play();
+            playerSanity.heartBeatObjectOne.SetActive(true);
+            playerSanity.heartBeatObjectTwo.SetActive(true);
+            playerSanity.heartBeatObjectThree.SetActive(true);
             menuAmbience.Stop();
         }
     }
