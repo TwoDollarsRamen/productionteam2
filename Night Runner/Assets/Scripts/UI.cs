@@ -16,6 +16,8 @@ public class UI : MonoBehaviour
     public GameObject creditsNext = null;
     public GameObject canvas = null;
     public GameObject creditsParent = null;
+    public GameObject tutorialButton = null;
+    public GameObject tutorial = null;
 
     public List<GameObject> creditsPages = new List<GameObject>();
     int currentCreditsPage = 0;
@@ -30,6 +32,8 @@ public class UI : MonoBehaviour
         creditsParent.SetActive(false);
         exit.SetActive(true);
         menu.SetActive(true);
+        tutorialButton.SetActive(true);
+        tutorial.SetActive(false);
     }
 
     // Plays the game
@@ -53,12 +57,24 @@ public class UI : MonoBehaviour
         creditsParent.SetActive(true);
         exit.SetActive(false);
         menu.SetActive(false);
+        tutorialButton.SetActive(false);
+        tutorial.SetActive(false);
 
         CreditsPage(0);
 
         // Enable all credits menu UI
         creditsNext.SetActive(true);
         creditsPrevious.SetActive(true);
+    }
+
+    public void ShowTutorial() {
+        play.SetActive(false);
+        credits.SetActive(false);
+        creditsParent.SetActive(false);
+        exit.SetActive(false);
+        menu.SetActive(false);
+        tutorialButton.SetActive(false);
+        tutorial.SetActive(true);
     }
 
     public void OnPrevCreditsClick() {
@@ -91,6 +107,8 @@ public class UI : MonoBehaviour
         creditsParent.SetActive(false);
         exit.SetActive(true);
         menu.SetActive(true);
+        tutorialButton.SetActive(true);
+        tutorial.SetActive(false);
     }
 
     // Exits the game
