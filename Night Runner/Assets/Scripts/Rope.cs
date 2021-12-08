@@ -11,6 +11,9 @@ public class Rope : MonoBehaviour
 
 	[Tooltip("This force will be applied to the player's rigidbody when they jump off the rope.")]
 	public Vector2 jumpOffForce = new Vector2(3.0f, 3.0f);
+	
+	[Tooltip("The offset of the player when they snap onto the rope")]
+	public Vector2 snapOffset = new Vector2(0.0f, 0.0f);
 
 	List<Transform> segments;
 
@@ -55,7 +58,7 @@ public class Rope : MonoBehaviour
 			player.GetComponent<Rigidbody>().isKinematic = true;
 			player.GetComponent<RedRidingHood>().enabled = false;
 
-			player.transform.position = endPoint.transform.position;
+			player.transform.position = snapOffset + endPoint.transform.position;
 		} else {
 			player.GetComponent<Rigidbody>().isKinematic = false;
 			player.GetComponent<RedRidingHood>().enabled = true;
