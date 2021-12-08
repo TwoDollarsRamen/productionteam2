@@ -14,6 +14,9 @@ public class NewJump : MonoBehaviour
     public bool isGrounded;
 
     bool jump = false;
+    public Animator anim;
+  
+    
 
     Rigidbody rb; // refers to red riding hood cubes rigid body
 
@@ -21,6 +24,7 @@ public class NewJump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -28,6 +32,7 @@ public class NewJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // jump control
         {
             jump = true;
+            
         }
     }
     // FixedUpdate is called once per frame
@@ -55,19 +60,32 @@ public class NewJump : MonoBehaviour
         if (Vector3.Dot(contact.normal, Vector3.up) > 0.5) // checks if contact was below
         {
             isGrounded = true;
+            anim.SetBool("isGrounded", true);
         }
     }
-    /*
-    void OnCollisionStay() // option if you want 'wall jumping'
+    private void OnTriggerEnter(Collider other)
     {
-        isGrounded = true;
+        if (other.gameObject.tag == "Rope")
+        {
+            anim.SetBool("isSwinging", true);
+            anim.SetBool("isGrounded", false);
+        }
     }
-    */
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Rope")
+        {
+            anim.SetBool("isSwinging", false);
+        }
+    }
+
     /// <summary>
     /// Whenever the player stops colliding with the floor, allow them to jump again.
     /// </summary>
     void OnCollisionExit()
     {
         isGrounded = false;
+        anim.SetBool("isGrounded", false);
     }
 }
