@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject player;
+    Sanity playerSanity;
+
     public Button resumeButton;
     public Button exitButton;
     public Text title;
@@ -21,7 +24,9 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		activateObjects(false);
+        playerSanity = player.GetComponent<Sanity>();
+
+        activateObjects(false);
 
         resumeButton.onClick.AddListener(GameUnPause); // button to restart
         exitButton.onClick.AddListener(Exit);
@@ -55,13 +60,23 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 0.0f; // pause
         gamePaused = true;
+
+        playerSanity.heartBeatObjectOne.SetActive(false);
+        playerSanity.heartBeatObjectTwo.SetActive(false);
+        playerSanity.heartBeatObjectThree.SetActive(false);
     }
     void GameUnPause()
     {
 		activateObjects(false);
 
+        backgroundMusic.UnPause();
+
         Time.timeScale = 1.0f; // unpause
         gamePaused = false;
+
+        playerSanity.heartBeatObjectOne.SetActive(true);
+        playerSanity.heartBeatObjectTwo.SetActive(true);
+        playerSanity.heartBeatObjectThree.SetActive(true);
     }
 
     void Exit()
