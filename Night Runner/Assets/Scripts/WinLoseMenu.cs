@@ -14,6 +14,8 @@ public class WinLoseMenu : MonoBehaviour
     public string gameOverLoseDisplay = "Y O U  W I N";
     public string gameOverWinDisplay = "Y O U  L O S E";
 
+    public GameObject blur;
+
     public AudioSource backgroundMusic;
     public AudioSource menuAmbience;
 
@@ -43,6 +45,7 @@ public class WinLoseMenu : MonoBehaviour
         exitButton.gameObject.SetActive(active);
         background.gameObject.SetActive(active);
         gameOverText.gameObject.SetActive(active);
+        blur.SetActive(active);
     }
 
     public void WinLoseResult(bool playerWon)
