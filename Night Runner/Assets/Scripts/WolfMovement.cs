@@ -61,4 +61,13 @@ public class WolfMovement : MonoBehaviour
             touchingPlayer = true;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("finish hits");
+            wolfMaxY = 100;
+            wolfHoverSpeed = 10;
+        }
+    }
 }
