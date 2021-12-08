@@ -497,7 +497,7 @@ MonoBehaviour:
   sanity: 0
   minSanity: 0.1
   loss: 0.06
-  lossGain: 0.02
+  lossGain: 0.005
   psv: {fileID: 0}
   petalGain: 0.003
   flowerGain: 0.25
@@ -505,10 +505,9 @@ MonoBehaviour:
   sanityToGain: 0.05
   maxSanityToGain: 0.25
   increaseToMaxSanityToGain: -0.005
-  heartbeatEmitter:
-  - {fileID: 4364280291898689038}
-  - {fileID: 1414032859823691728}
-  - {fileID: 8986085996451717478}
+  heartBeatObjectOne: {fileID: 0}
+  heartBeatObjectTwo: {fileID: 0}
+  heartBeatObjectThree: {fileID: 0}
   musicEmitter: {fileID: 0}
   petalParticle: {fileID: 0}
 --- !u!1 &2395796000236605114
