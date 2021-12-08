@@ -64,6 +64,7 @@ public class WinLoseMenu : MonoBehaviour
 
         Time.timeScale = 0.0f; // pause
         backgroundMusic.Stop();
+        Cursor.visible = true;
 
         gameOverText.text = playerWon ? gameOverWinDisplay : gameOverLoseDisplay;
     }
@@ -87,10 +88,12 @@ public class WinLoseMenu : MonoBehaviour
         backgroundMusic.Play();
         Time.timeScale = 1.0f;
         restarted = true;
+        Cursor.visible = false;
     }
     void CloseStartMenu() // function
     {
         startMenu.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
+        Cursor.visible = false;
     }
 }

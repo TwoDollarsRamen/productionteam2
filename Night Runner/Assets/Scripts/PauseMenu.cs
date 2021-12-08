@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 0.0f; // pause
         gamePaused = true;
+		Cursor.visible = true;
 
         playerSanity.heartBeatObjectOne.SetActive(false);
         playerSanity.heartBeatObjectTwo.SetActive(false);
@@ -73,6 +74,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1.0f; // unpause
         gamePaused = false;
+		Cursor.visible = false;
 
         playerSanity.heartBeatObjectOne.SetActive(true);
         playerSanity.heartBeatObjectTwo.SetActive(true);

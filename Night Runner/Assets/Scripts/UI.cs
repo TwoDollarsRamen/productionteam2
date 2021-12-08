@@ -46,6 +46,8 @@ public class UI : MonoBehaviour
 		canvas.SetActive(false);
 		pauseMenuCanvas.SetActive(true);
 
+		Cursor.visible = false;
+
 		Time.timeScale = 1.0f; // game speed or un-pause
     }
 
