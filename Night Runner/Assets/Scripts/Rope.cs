@@ -58,7 +58,7 @@ public class Rope : MonoBehaviour
 			player.GetComponent<Rigidbody>().isKinematic = true;
 			player.GetComponent<RedRidingHood>().enabled = false;
 
-			player.transform.position = snapOffset + endPoint.transform.position;
+			player.transform.position = new Vector3(snapOffset.x, snapOffset.y, 0.0f) + endPoint.transform.position;
 		} else {
 			player.GetComponent<Rigidbody>().isKinematic = false;
 			player.GetComponent<RedRidingHood>().enabled = true;
