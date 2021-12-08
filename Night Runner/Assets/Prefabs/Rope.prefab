@@ -376,7 +376,7 @@ MonoBehaviour:
   point0: {fileID: 7973614329264699904}
   point1: {fileID: 7973614330478086092}
   point2: {fileID: 7973614330656351886}
-  speed: 3
+  speed: 6
   swinging: 0
   reverse: 1
 --- !u!1 &7973614330233367120
@@ -869,7 +869,7 @@ MonoBehaviour:
   segmentRoot: {fileID: 7973614330077877215}
   endPoint: {fileID: 7973614330187985975}
   player: {fileID: 1419097194, guid: 601071bca55729447868a4397a5ad9d7, type: 3}
-  jumpOffForce: {x: 5, y: 5}
+  jumpOffForce: {x: 10, y: 10}
   snapOffset: {x: 0, y: -1.6}
 --- !u!54 &1136772970
 Rigidbody:
