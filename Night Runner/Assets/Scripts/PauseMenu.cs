@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public Button resumeButton;
     public Button exitButton;
     public Text title;
+    public GameObject blur;
 
     public AudioSource backgroundMusic;
 
@@ -31,6 +32,7 @@ public class PauseMenu : MonoBehaviour
         exitButton.gameObject.SetActive(active);
         background.gameObject.SetActive(active);
         title.gameObject.SetActive(active);
+        blur.gameObject.SetActive(active);
     }
 
     // Update is called once per frame
