@@ -18,6 +18,7 @@ public class WinLoseMenu : MonoBehaviour
     public string gameOverWinDisplay = "Y O U  L O S E";
 
     public GameObject blur;
+    public GameObject pauseMenu;
 
     public AudioSource backgroundMusic;
     public AudioSource menuAmbience;
@@ -58,6 +59,7 @@ public class WinLoseMenu : MonoBehaviour
 
     public void WinLoseResult(bool playerWon)
     {
+    	pauseMenu.SetActive(false);
 		activateObjects();
 
         Time.timeScale = 0.0f; // pause
@@ -78,6 +80,8 @@ public class WinLoseMenu : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene(); // Scene reload
         SceneManager.LoadScene(scene.name);
+
+    	pauseMenu.SetActive(true);
 
         startMenu.gameObject.SetActive(false);
         backgroundMusic.Play();

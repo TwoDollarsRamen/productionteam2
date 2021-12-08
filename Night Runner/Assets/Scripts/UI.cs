@@ -18,6 +18,7 @@ public class UI : MonoBehaviour
     public GameObject creditsParent = null;
     public GameObject tutorialButton = null;
     public GameObject tutorial = null;
+    public GameObject pauseMenuCanvas;
 
     public List<GameObject> creditsPages = new List<GameObject>();
     int currentCreditsPage = 0;
@@ -34,6 +35,7 @@ public class UI : MonoBehaviour
         menu.SetActive(true);
         tutorialButton.SetActive(true);
         tutorial.SetActive(false);
+		pauseMenuCanvas.SetActive(false);
     }
 
     // Plays the game
@@ -42,6 +44,7 @@ public class UI : MonoBehaviour
         Debug.Log("Play");
 
 		canvas.SetActive(false);
+		pauseMenuCanvas.SetActive(true);
 
 		Time.timeScale = 1.0f; // game speed or un-pause
     }
