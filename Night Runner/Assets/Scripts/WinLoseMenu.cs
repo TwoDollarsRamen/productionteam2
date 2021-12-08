@@ -33,6 +33,8 @@ public class WinLoseMenu : MonoBehaviour
         {
             CloseStartMenu();
             restarted = false;
+            backgroundMusic.Play();
+            menuAmbience.Stop();
         }
     }
 
