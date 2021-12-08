@@ -108,7 +108,10 @@ public class Sanity : MonoBehaviour
         if (collider.CompareTag("Petal"))
         {
             sanityToGain += petalGain;
-            Instantiate(petalParticle, transform.localPosition, Quaternion.identity);
+            var ps = Instantiate(petalParticle, collider.gameObject.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+            var particleTime = ps.duration + ps.startLifetime;
+            Destroy(ps.gameObject, particleTime);
+
             Destroy(collider.gameObject);
         }
         else if (collider.CompareTag("Flower"))
