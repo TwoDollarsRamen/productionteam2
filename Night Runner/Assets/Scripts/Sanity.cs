@@ -35,7 +35,15 @@ public class Sanity : MonoBehaviour
 
     Vignette vignette;
 
-    public AudioSource[] heartbeatEmitter = new AudioSource[3];
+    //public AudioSource[] heartbeatEmitter = new AudioSource[3];
+
+    public GameObject heartBeatObjectOne;
+    public GameObject heartBeatObjectTwo;
+    public GameObject heartBeatObjectThree;
+
+    AudioSource heartBeatOne;
+    AudioSource heartBeatTwo;
+    AudioSource heartBeatThree;
 
     public AudioSource musicEmitter;
     public GameObject petalParticle;
@@ -43,6 +51,14 @@ public class Sanity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        heartBeatOne = heartBeatObjectOne.GetComponent<AudioSource>();
+        heartBeatTwo = heartBeatObjectTwo.GetComponent<AudioSource>();
+        heartBeatThree = heartBeatObjectThree.GetComponent<AudioSource>();
+
+        heartBeatOne.volume = maxSanity - ((maxSanity / 10) * 9);
+        heartBeatTwo.volume = maxSanity - (maxSanity / 3) * 2;
+        heartBeatThree.volume = maxSanity;
+
         sanity = maxSanity;
 
         psv.profile.TryGetSettings(out vignette);
@@ -82,18 +98,36 @@ public class Sanity : MonoBehaviour
 
         if (sanity <= maxSanity / 3) // heartbeat with sanity / 33% or less
         {
-            heartbeatEmitter[0].volume = maxSanity - (maxSanity / 3);
+            if (!heartBeatThree.isPlaying)
+            {
+                heartBeatTwo.Stop();
+                heartBeatOne.Stop();
+
+                heartBeatThree.Play();
+            }
         }
         else if (sanity <= (maxSanity / 3) * 2) // 66%
         {
-            heartbeatEmitter[1].volume = maxSanity - (maxSanity / 3) * 2;
+            if (!heartBeatTwo.isPlaying)
+            { 
+                heartBeatOne.Stop();
+                heartBeatThree.Stop();
+
+                heartBeatTwo.Play();
+            }
         }
         else // > 66%
         {
-            heartbeatEmitter[2].volume = maxSanity - (maxSanity / 10) * 9;
+            if (!heartBeatOne.isPlaying)
+            {
+                heartBeatThree.Stop();
+                heartBeatTwo.Stop(); 
+
+                heartBeatOne.Play();
+            }
         }
 
-        if (sanity < maxSanity / 2) // music with sanity
+        if (sanity < maxSanity / 2) // music with sanity 
         {
             musicEmitter.volume = sanity / (maxSanity / 2);
         }
