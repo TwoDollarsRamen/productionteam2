@@ -14,9 +14,9 @@ AvatarMask:
   - m_Path: Base_joint
     m_Weight: 0
   - m_Path: Base_joint/Neck_joint
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Base_joint/Neck_joint/Head_joint
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Base_joint/Neck_joint/Head_joint/Jaw_joint
     m_Weight: 0
   - m_Path: Base_joint/Neck_joint/Head_joint/Snout_joint
