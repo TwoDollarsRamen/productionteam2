@@ -26,11 +26,13 @@ public class WolfMovement : MonoBehaviour
     [Tooltip("Recommended starting speed for your fiddling is 1.")]
     public float wolfHoverSpeed;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         mover = mainCamera.GetComponent<CameraMover>();
-
+        
         initialCameraOffset = (transform.position - mainCamera.transform.position).x;
         targetPosition = transform.position;
     }
@@ -68,6 +70,17 @@ public class WolfMovement : MonoBehaviour
             Debug.Log("finish hits");
             wolfMaxY = 100;
             wolfHoverSpeed = 10;
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            anim.SetTrigger("catchRed");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            anim.ResetTrigger("catchRed");
         }
     }
 }
