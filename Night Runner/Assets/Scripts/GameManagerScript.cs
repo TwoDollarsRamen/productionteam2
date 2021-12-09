@@ -13,6 +13,9 @@ public class GameManagerScript : MonoBehaviour
     public GameObject wolf;
     WolfMovement wolfMovement;
 
+    [Tooltip("How far beind the middle of the wolf the player can be before they lose. A positive number will push the offset ahead of the center of the wolf and a negative will push it behind the center.")]
+    public float loseIfBehindOffset;
+
     public GameObject finishLine;
     FinishLineScript finishScript;
 
@@ -53,6 +56,15 @@ public class GameManagerScript : MonoBehaviour
             playerSanity.heartBeatObjectThree.SetActive(false);
         }
         if (wolfMovement.touchingPlayer) // Touch Wolf Loss Condition
+        {
+            // Lose
+            winLoseMenu.WinLoseResult(false);
+
+            playerSanity.heartBeatObjectOne.SetActive(false);
+            playerSanity.heartBeatObjectTwo.SetActive(false);
+            playerSanity.heartBeatObjectThree.SetActive(false);
+        }
+        if (player.transform.position.x < wolfMovement.transform.position.x + loseIfBehindOffset) // Fall behind wolf
         {
             // Lose
             winLoseMenu.WinLoseResult(false);
