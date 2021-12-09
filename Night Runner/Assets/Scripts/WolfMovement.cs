@@ -27,6 +27,7 @@ public class WolfMovement : MonoBehaviour
     public float wolfHoverSpeed;
 
     public Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,7 @@ public class WolfMovement : MonoBehaviour
         {
             anim.SetTrigger("catchRed");
         }
+        
     }
     private void OnTriggerExit(Collider other)
     {
